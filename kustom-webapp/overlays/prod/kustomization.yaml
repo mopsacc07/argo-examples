@@ -1,11 +1,10 @@
-# Correct patches format
-patches:
-  - path: patch1.yaml
-    target:
-      kind: Deployment
-  - path: patch2.yaml
+bases:
+- ../../base
 
-# OR correct patchesStrategicMerge format
-patchesStrategicMerge:
-  - patch1.yaml
-  - patch2.yaml
+patches:
+- replicas.yaml
+
+configMapGenerator:
+- name: mykustom-map
+  envs:
+  - config.properties
