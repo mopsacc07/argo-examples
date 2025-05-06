@@ -1,9 +1,11 @@
-bases:
-- ../../base
-
+# Correct patches format
 patches:
- - replicas.yaml
+  - path: patch1.yaml
+    target:
+      kind: Deployment
+  - path: patch2.yaml
 
-configMapGenerator:
-- name: mykustom-map
-  env: config.properties
+# OR correct patchesStrategicMerge format
+patchesStrategicMerge:
+  - patch1.yaml
+  - patch2.yaml
